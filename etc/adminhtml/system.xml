@@ -13,9 +13,10 @@
             <group id="resource_hints" translate="label comment" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Resource Hints</label>
                 <class>dan0sz-branding</class>
-                <comment>Add resource hints to your store's header by editing the list below.</comment>
-                <field id="config" translate="label" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                <comment><![CDATA[Add resource hints to your store's header by editing the list below.]]></comment>
+                <field id="config" translate="label comment" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Configure</label>
+                    <comment><![CDATA[To find out more about the different types, <a href="https://www.w3.org/TR/resource-hints/#resource-hints">read more</a>.]]></comment>
                     <frontend_model>Dan0sz\ResourceHints\Block\System\Config\Form\Field\FieldArray</frontend_model>
                     <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
                 </field>

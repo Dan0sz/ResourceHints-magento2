@@ -15,8 +15,8 @@ class FieldArray extends AbstractFieldArray
     /** @var array $_columns */
     protected $_columns = [];
 
-    /** @var  $_customerGroupRenderer */
-    protected $_customerGroupRenderer;
+    /** @var  $resourceTypeRenderer */
+    protected $resourceTypeRenderer;
 
     /** @var bool $_addAfter */
     protected $_addAfter = true;
@@ -39,15 +39,15 @@ class FieldArray extends AbstractFieldArray
      */
     private function listResourceHintTypes()
     {
-        if (!$this->_customerGroupRenderer) {
-            $this->_customerGroupRenderer = $this->getLayout()->createBlock(
+        if (!$this->resourceTypeRenderer) {
+            $this->resourceTypeRenderer = $this->getLayout()->createBlock(
                 '\Dan0sz\ResourceHints\Block\Adminhtml\Form\Field\Configure',
                 '',
                 ['data' => ['is_render_to_js_template' => true]]
             );
         }
 
-        return $this->_customerGroupRenderer;
+        return $this->resourceTypeRenderer;
     }
 
     /**
@@ -103,13 +103,12 @@ class FieldArray extends AbstractFieldArray
     public function renderCellTemplate($columnName)
     {
         if ($columnName == "type") {
-            $this->_columns[$columnName]['class'] = 'input-text required-entry';
-            $this->_columns[$columnName]['style'] = 'width: 150px';
+            $this->_columns[$columnName]['class'] = 'input-select required-entry';
         }
 
         if ($columnName == 'resource') {
             $this->_columns[$columnName]['class'] = 'input-text required-entry';
-            $this->_columns[$columnName]['style'] = 'width: 300px';
+            $this->_columns[$columnName]['style'] = 'width: 375px';
         }
 
         if ($columnName == 'sort_order') {
