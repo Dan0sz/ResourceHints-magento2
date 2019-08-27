@@ -1,0 +1,32 @@
+{
+  "name": "dan0sz/resource-hints-magento2",
+  "description": "Add `<link rel='preconnect'>`, `<link rel='prefetch'>` or `<link rel='preload'>` resource hints to Magento 2's head.",
+  "version": "1.0.0",
+  "require": {
+    "php": "~7.1|~7.2",
+    "ext-openssl": "*",
+    "ext-json": "*",
+    "magento/framework": "101.*|102.*"
+  },
+  "type": "magento2-module",
+  "license": "CC-BY-4.0",
+  "authors": [
+    {
+      "name": "Daan van den Bergh",
+      "email": "info@daan.dev",
+      "homepage": "https://daan.dev"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/Dan0sz/ResourceHints-magento2/issues/"
+  },
+  "homepage": "https://daan.dev",
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Dan0sz\\ResourceHints\\": ""
+    }
+  }
+}
