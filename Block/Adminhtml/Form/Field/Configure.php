@@ -44,7 +44,7 @@ class Configure extends Select
         }
 
         $this->setClass('input-select required-entry');
-        $this->setExtraParams('style="width: 150px;"');
+        $this->setExtraParams('style="width: 125px;"');
 
         return parent::_toHtml();
     }
