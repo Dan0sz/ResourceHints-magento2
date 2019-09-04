@@ -12,7 +12,6 @@
         <section id="web">
             <group id="resource_hints" translate="label comment" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Resource Hints</label>
-                <class>dan0sz-branding</class>
                 <comment><![CDATA[Add resource hints to your store's header by editing the list below.]]></comment>
                 <field id="config" translate="label comment" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Configure</label>
