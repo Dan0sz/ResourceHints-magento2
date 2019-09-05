@@ -53,11 +53,18 @@ class Builder implements ObserverInterface
         $resourceHints = $this->sort((array) json_decode($configArray));
 
         foreach ($resourceHints as $resource) {
+            $attributes = [];
+            $attributes['rel'] = $resource->type;
+
+            if ($resource->type == 'preload') {
+                $attributes['as'] = $resource->preload_as;
+            }
+
             $this->pageConfig->addRemotePageAsset(
                 $resource->resource,
                 'link_rel',
                 [
-                    'attributes' => ['rel' => $resource->type]
+                    'attributes' => $attributes
                 ]
             );
         }

@@ -15,14 +15,17 @@ class FieldArray extends AbstractFieldArray
     /** @var array $_columns */
     protected $_columns = [];
 
-    /** @var  $resourceTypeRenderer */
-    protected $resourceTypeRenderer;
-
     /** @var bool $_addAfter */
     protected $_addAfter = true;
 
     /** @var $_addButtonLabel */
     protected $_addButtonLabel;
+
+    /** @var $resourceTypeRenderer */
+    private $resourceTypeRenderer;
+
+    /** @var $preloadTypeRenderer */
+    private $preloadTypeRenderer;
 
     /**
      * FieldArray Constructor
@@ -51,6 +54,23 @@ class FieldArray extends AbstractFieldArray
     }
 
     /**
+     * @return \Magento\Framework\View\Element\BlockInterface
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
+    private function listPreloadTypes()
+    {
+        if (!$this->preloadTypeRenderer) {
+            $this->preloadTypeRenderer = $this->getLayout()->createBlock(
+                '\Dan0sz\ResourceHints\Block\Adminhtml\Form\Field\PreloadType',
+                '',
+                ['data' => ['is_render_to_js_template' => true]]
+            );
+        }
+
+        return $this->preloadTypeRenderer;
+    }
+
+    /**
      * @throws \Magento\Framework\Exception\LocalizedException
      */
     protected function _prepareToRender()
@@ -74,8 +94,14 @@ class FieldArray extends AbstractFieldArray
                 'label' => __('Sort Order')
             ]
         );
+        $this->addColumn(
+            'preload_as',
+            [
+                'label' => __('Preload as'),
+                'renderer' => $this->listPreloadTypes()
+            ]
+        );
         $this->_addAfter       = false;
-        $this->_addButtonLabel = __('Add Resource Hint');
     }
 
     /**
@@ -91,6 +117,13 @@ class FieldArray extends AbstractFieldArray
         if ($type) {
             $options['option_' . $this->listResourceHintTypes()->calcOptionHash($type)] = 'selected="selected"';
         }
+
+        $preloadAs = $row->getPreloadAs();
+
+        if ($preloadAs) {
+            $options['option_' . $this->listPreloadTypes()->calcOptionHash($preloadAs)] = 'selected="selected"';
+        }
+
         $row->setData('option_extra_attrs', $options);
     }
 
@@ -108,12 +141,16 @@ class FieldArray extends AbstractFieldArray
 
         if ($columnName == 'resource') {
             $this->_columns[$columnName]['class'] = 'input-text required-entry';
-            $this->_columns[$columnName]['style'] = 'width: 325px';
+            $this->_columns[$columnName]['style'] = 'width: 200px';
         }
 
         if ($columnName == 'sort_order') {
             $this->_columns[$columnName]['class'] = 'input-text required-entry validate-number';
             $this->_columns[$columnName]['style'] = 'width: 50px';
+        }
+
+        if ($columnName == "preload_as") {
+            $this->_columns[$columnName]['class'] = 'input-select';
         }
 
         return parent::renderCellTemplate($columnName);

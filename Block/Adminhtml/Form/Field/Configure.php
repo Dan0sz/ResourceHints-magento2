@@ -13,10 +13,11 @@ use Magento\Framework\View\Element\Html\Select;
 
 class Configure extends Select
 {
+    /** @var array $_options */
     protected $_options = [
-        'preload'    => 'Preload',
-        'prefetch'   => 'Prefetch',
-        'preconnect' => 'Preconnect'
+        'preload'      => 'Preload',
+        'preconnect'   => 'Preconnect',
+        'dns-prefetch' => 'DNS Prefetch'
     ];
 
     /**
