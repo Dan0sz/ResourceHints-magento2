@@ -48,7 +48,7 @@ class PreloadType extends Select
     ];
 
     /**
-     * Configure constructor.
+     * PreloadType constructor.
      *
      * @param Context $context
      * @param array   $data

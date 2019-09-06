@@ -11,7 +11,7 @@ namespace Dan0sz\ResourceHints\Block\Adminhtml\Form\Field;
 use Magento\Framework\View\Element\Context;
 use Magento\Framework\View\Element\Html\Select;
 
-class Configure extends Select
+class ResourceHintType extends Select
 {
     /** @var array $_options */
     protected $_options = [
@@ -21,7 +21,7 @@ class Configure extends Select
     ];
 
     /**
-     * Configure constructor.
+     * ResourceHintType constructor.
      *
      * @param Context $context
      * @param array   $data

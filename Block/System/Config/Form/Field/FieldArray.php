@@ -44,7 +44,7 @@ class FieldArray extends AbstractFieldArray
     {
         if (!$this->resourceTypeRenderer) {
             $this->resourceTypeRenderer = $this->getLayout()->createBlock(
-                '\Dan0sz\ResourceHints\Block\Adminhtml\Form\Field\Configure',
+                '\Dan0sz\ResourceHints\Block\Adminhtml\Form\Field\ResourceHintType',
                 '',
                 ['data' => ['is_render_to_js_template' => true]]
             );
