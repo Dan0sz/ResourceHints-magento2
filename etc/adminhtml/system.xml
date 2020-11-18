@@ -4,7 +4,7 @@
  * @author   : Daan van den Bergh
  * @url      : https://daan.dev
  * @package  : Dan0sz/ResourceHints
- * @copyright: (c) 2019 Daan van den Bergh
+ * @copyright: (c) 2020 Daan van den Bergh
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
