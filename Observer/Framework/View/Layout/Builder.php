@@ -60,6 +60,10 @@ class Builder implements ObserverInterface
                 $attributes['as'] = $resource->preload_as;
             }
 
+            if ($resource->cross_origin == '1') {
+                $attributes['crossorigin'] = 'anonymous';
+            }
+
             $this->pageConfig->addRemotePageAsset(
                 $resource->resource,
                 'link_rel',

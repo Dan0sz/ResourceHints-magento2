@@ -27,6 +27,9 @@ class FieldArray extends AbstractFieldArray
     /** @var $preloadTypeRenderer */
     private $preloadTypeRenderer;
 
+    /** @var $crossOriginSupportRenderer */
+    private $crossOriginSupportRenderer;
+
     /**
      * FieldArray Constructor
      */
@@ -71,6 +74,22 @@ class FieldArray extends AbstractFieldArray
     }
 
     /**
+     * @return string
+     */
+    private function renderCrossOriginSupport()
+    {
+        if (!$this->crossOriginSupportRenderer) {
+            $this->crossOriginSupportRenderer = $this->getLayout()->createBlock(
+                '\Dan0sz\ResourceHints\Block\Adminhtml\Form\Field\CrossOriginSupport',
+                '',
+                ['data' => ['is_render_to_js_template' => true]]
+            );
+        }
+
+        return $this->crossOriginSupportRenderer;
+    }
+
+    /**
      * @throws \Magento\Framework\Exception\LocalizedException
      */
     protected function _prepareToRender()
@@ -101,6 +120,13 @@ class FieldArray extends AbstractFieldArray
                 'renderer' => $this->listPreloadTypes()
             ]
         );
+        $this->addColumn(
+            'cross_origin',
+            [
+                'label' => __('Enable CORS Support'),
+                'renderer' => $this->renderCrossOriginSupport()
+            ]
+        );
         $this->_addAfter       = false;
     }
 
@@ -122,6 +148,12 @@ class FieldArray extends AbstractFieldArray
 
         if ($preloadAs) {
             $options['option_' . $this->listPreloadTypes()->calcOptionHash($preloadAs)] = 'selected="selected"';
+        }
+
+        $crossOriginSupport = $row->getCrossOrigin();
+
+        if ($crossOriginSupport) {
+            $options['option_' . $this->renderCrossOriginSupport()->calcOptionHash($crossOriginSupport)] = 'selected="selected"';
         }
 
         $row->setData('option_extra_attrs', $options);
@@ -150,6 +182,10 @@ class FieldArray extends AbstractFieldArray
         }
 
         if ($columnName == "preload_as") {
+            $this->_columns[$columnName]['class'] = 'input-select';
+        }
+
+        if ($columnName == 'cross_origin') {
             $this->_columns[$columnName]['class'] = 'input-select';
         }
 
