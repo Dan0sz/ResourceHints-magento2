@@ -4,7 +4,7 @@
 
 Add `<link rel='preconnect'>`, `<link rel='prefetch'>` or `<link rel='preload'>` resource hints to Magento 2's head.
 
-## Features 
+## Features
 
 - Tweak your Magento 2 store's performance by adding custom `preconnect`, `prefetch` and `preload` headers.
 - Enable/disable `crossorigin` attribute.
@@ -39,3 +39,15 @@ If you can't or dont want to use Composer, you can download the `master`-branch 
 ## Configuration
 
 After installation a new tab is added to *Stores > Configuration > General > Web* called *Resource Hints*.
+
+#### Resource
+
+Values added to this field are assumed to be relative local assets. Their full url will be automatically resolved prior to render:
+
+- `Vendor_Module::path/to/asset.ext` (local)
+- `path/to/asset.ext` (local)
+
+Because of this, remote assets **must** be prefixed with a protocol:
+- `http://domain.tld/path/to/asset.ext` (remote)
+- `https://domain.tld/path/to/asset.ext` (remote)
+- `//SomeVolume/path/to/asset.ext` (remote)

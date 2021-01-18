@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Store configuration -->
+    <preference for="Dan0sz\ResourceHints\Model\ConfigurationInterface"
+        type="Dan0sz\ResourceHints\Model\Configuration" />
+</config>
