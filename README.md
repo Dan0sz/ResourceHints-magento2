@@ -40,14 +40,26 @@ If you can't or dont want to use Composer, you can download the `master`-branch 
 
 After installation a new tab is added to *Stores > Configuration > General > Web* called *Resource Hints*.
 
-#### Resource
+### How does it work?
 
-Values added to this field are assumed to be relative local assets. Their full url will be automatically resolved prior to render:
+While most settings of this extension speak for themselves. The Resource column contains a few nifty tricks (thanks to @chedaroo), which will come in handy when e.g. Static content signing is enabled. 
 
-- `Vendor_Module::path/to/asset.ext` (local)
-- `path/to/asset.ext` (local)
+Values in the Resource column are assumed to be relative (local) assets. When a relative path is entered and **Static Content Signing** is **enabled**, e.g. 
 
-Because of this, remote assets **must** be prefixed with a protocol:
-- `http://domain.tld/path/to/asset.ext` (remote)
-- `https://domain.tld/path/to/asset.ext` (remote)
-- `//SomeVolume/path/to/asset.ext` (remote)
+(*In these examples it is assumed that the default theme, Magento Luma is used.*)
+
+- `YourName_ModuleName::path/to/file.ext` will resolve to `https://yourdomain.tld/static/<<deployment_version>>/frontend/Magento/luma/en_US/YourName_ModuleName/path/to/file.ext`, and
+- `path/to/file.ext` will resolve to `https://yourdomain.tld/static/<<deployment_version>>/frontend/Magento/luma/en_US/path/to/file.ext`.
+
+When **Static Content Signing** is **disabled**, the above mentioned values will resolve to:
+
+- `https://yourdomain.tld/static/frontend/Magento/luma/en_US/YourName_ModuleName/path/to/file.ext`, and
+- `https://yourdomain.tld/static/frontend/Magento/luma/en_US/path/to/file.ext` respectively.
+
+When absolute URLs (prefixed by a protocol, i.e. `http://`, `https://` or `//`) are entered in the Resource column, no prior resolving will take place. E.g.
+
+- `http://yourdomain.tld/path/to/file.ext`,
+- `https://yourdomain.tld/path/to/file.ext`, and
+- `//SomeVolume/path/to/file.ext`.
+
+The examples above will all resolve to the same exact URL.
