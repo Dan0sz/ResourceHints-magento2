@@ -2,11 +2,11 @@
 
 ## Overview
 
-Add `<link rel='preconnect'>`, `<link rel='prefetch'>` or `<link rel='preload'>` resource hints to Magento 2's head.
+Add `<link rel='preconnect'>`, `<link rel='dns-prefetch'>` or `<link rel='preload'>` resource hints to Magento 2's head.
 
 ## Features
 
-- Tweak your Magento 2 store's performance by adding custom `preconnect`, `prefetch` and `preload` headers.
+- Tweak your Magento 2 store's performance by adding custom `preconnect`, `dns-prefetch` and `preload` headers.
 - Enable/disable `crossorigin` attribute.
 - Easily configurable at default, website and store view level (incl. sort order).
 

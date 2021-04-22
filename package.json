@@ -1,7 +1,7 @@
 {
   "name": "Dan0sz_ResourceHints",
   "version": "1.1.0",
-  "description": "Add `<link rel='preconnect'>`, `<link rel='prefetch'>` or `<link rel='preload'>` resource hints to Magento 2's head.",
+  "description": "Add `<link rel='preconnect'>`, `<link rel='dns-prefetch'>` or `<link rel='preload'>` resource hints to Magento 2's head.",
   "author": "Dan0sz",
   "license": "CC-BY-4.0",
   "homepage": "https://daan.dev/"
