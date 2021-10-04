@@ -1,3 +1,7 @@
+# THIS EXTENSION IS NO LONGER ACTIVELY MAINTAINED
+
+If it doesn't work on your Magento 2 instance, please fork this repo and fix it -- and feel free to submit a PR to add your changes to this repo.
+
 # Resource Hints for Magento 2
 
 ## Overview
