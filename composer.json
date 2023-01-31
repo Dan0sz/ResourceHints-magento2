@@ -4,7 +4,7 @@
   "require": {
     "ext-openssl": "*",
     "ext-json": "*",
-    "magento/framework": "101.*|102.*|103.*"
+    "magento/framework": "*"
   },
   "type": "magento2-module",
   "license": "CC-BY-4.0",
