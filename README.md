@@ -2,6 +2,8 @@
 
 If it doesn't work on your Magento 2 instance, please fork this repo and fix it -- and feel free to submit a PR to add your changes to this repo.
 
+Update January 31st, 2022: I've removed the Magento version requirements from composer.json so that you can try it on any instance. I'm not guaranteeing it'll work.
+
 # Resource Hints for Magento 2
 
 ## Overview
